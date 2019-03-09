@@ -30,11 +30,11 @@ public class ProductController {
 
     @RequestMapping("find")
     public Object findByid(@RequestParam("id") int id){
-        try {
+/*        try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
         Product product = productService.findById(id);
         Product result = new Product();

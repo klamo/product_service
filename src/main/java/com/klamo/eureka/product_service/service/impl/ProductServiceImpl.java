@@ -3,6 +3,8 @@ package com.klamo.eureka.product_service.service.impl;
 
 import com.klamo.eureka.product_service.domain.Product;
 import com.klamo.eureka.product_service.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.Map;
 public class ProductServiceImpl implements ProductService {
 
     private static final Map<Integer,Product> daoMap = new HashMap<>();
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     static {
         daoMap.put(1,new Product(1,"手机",99,10));
@@ -32,6 +36,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(int id) {
+        logger.info("product server log日志...");
         return daoMap.get(id);
     }
 }
